@@ -6,6 +6,7 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import ForgotPassword from '../pages/ForgotPassword'
 import AdminLogin from '../pages/AdminLogin'
+import Home from '../pages/Home'
 
 // Layouts
 import StudentLayout from '../layouts/StudentLayout'
@@ -53,6 +54,13 @@ function AdminRoute({ children }) {
   return children
 }
 
+function HomeRoute() {
+  const { user, loading } = useAuth()
+  if (loading) return <div className="flex h-screen items-center justify-center"><div className="skeleton h-8 w-8 rounded-full" /></div>
+  if (user) return <Navigate to={user.role === 'admin' ? '/admin/dashboard' : '/dashboard'} replace />
+  return <Home />
+}
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -62,8 +70,10 @@ export default function AppRoutes() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/admin/login" element={<AdminLogin />} />
 
+      {/* Public landing */}
+      <Route path="/" element={<HomeRoute />} />
+
       {/* Student */}
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route element={<StudentRoute><StudentLayout /></StudentRoute>}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/spaces" element={<FindSpaces />} />

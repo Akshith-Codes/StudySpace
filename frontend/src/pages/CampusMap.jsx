@@ -11,10 +11,10 @@ import Rating from '../components/Rating'
 import LoadingState from '../components/LoadingState'
 
 const MARKER_COLORS = {
-  Available: '#10b981',
-  Moderate: '#f59e0b',
-  Crowded: '#ef4444',
-  Full: '#737373',
+  Available: '#1e7a54',
+  Moderate: '#c1791f',
+  Crowded: '#a83a32',
+  Full: '#7a7466',
 }
 
 function createIcon(color) {
@@ -78,7 +78,7 @@ export default function CampusMap() {
                   <p style={{ fontSize: '11px', color: '#666', margin: '0 0 8px 0' }}>{space.building} · Floor {space.floor}</p>
                   <p style={{ fontSize: '11px', margin: '0 0 4px 0' }}>{space.occupiedCount}/{space.capacity} seats · {space.occupancyPercent}%</p>
                   <p style={{ fontSize: '11px', margin: '0 0 8px 0' }}>★ {space.rating} · {space.noiseLevel}</p>
-                  <Link to={`/spaces/${space.id}`} style={{ color: '#1a4cff', fontSize: '12px', fontWeight: 500 }}>View Space →</Link>
+                  <Link to={`/spaces/${space.id}`} style={{ color: '#2f5c8a', fontSize: '12px', fontWeight: 500 }}>View Space</Link>
                 </div>
               </Popup>
             </Marker>

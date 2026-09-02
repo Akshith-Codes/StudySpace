@@ -30,7 +30,7 @@ export default function Login() {
       <div className="w-full max-w-sm">
         <div className="mb-6 text-center">
           <div className="mb-3 flex justify-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600">
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-600">
               <BookOpen size={24} className="text-white" />
             </div>
           </div>

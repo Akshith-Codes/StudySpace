@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,17 +12,24 @@
     @apply bg-neutral-50 text-neutral-900 font-sans antialiased;
     margin: 0;
   }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  /* Numbers read like a board readout wherever they're scanned, not read. */
+  .num {
+    @apply font-mono tabular-nums;
+  }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
     @apply btn bg-primary-600 text-white hover:bg-primary-700;
   }
   .btn-secondary {
-    @apply btn bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-50;
+    @apply btn bg-white text-neutral-800 border border-neutral-300 hover:border-neutral-400 hover:bg-neutral-50;
   }
   .btn-ghost {
     @apply btn text-neutral-600 hover:bg-neutral-100;
@@ -31,32 +38,45 @@
     @apply btn bg-error-600 text-white hover:bg-error-700;
   }
   .input {
-    @apply w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
+    @apply w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
   }
   .label {
     @apply block text-sm font-medium text-neutral-700 mb-1;
   }
+
+  /* Hairline border, small radius, no shadow — a directory card, not a SaaS tile.
+     Interactive cards get a border-color shift instead of a shadow lift. */
   .card {
-    @apply rounded-xl border border-neutral-200 bg-white;
+    @apply rounded-md border border-neutral-200 bg-white transition-colors;
   }
+
+  /* Status tags are solid signal chips (like a sign board), not soft pastel pills.
+     Descriptive tags (facilities, etc.) stay as neutral outlines so the two never look alike. */
   .badge {
-    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+    @apply inline-flex items-center gap-1 rounded-sm px-1.5 py-0.5 text-xs font-semibold;
   }
   .badge-success {
-    @apply badge bg-success-100 text-success-700;
+    @apply badge bg-success-600 text-white;
   }
   .badge-warning {
-    @apply badge bg-warning-100 text-warning-700;
+    @apply badge bg-warning-600 text-white;
   }
   .badge-error {
-    @apply badge bg-error-100 text-error-700;
-  }
-  .badge-neutral {
-    @apply badge bg-neutral-100 text-neutral-600;
+    @apply badge bg-error-600 text-white;
   }
   .badge-primary {
-    @apply badge bg-primary-100 text-primary-700;
+    @apply badge bg-primary-600 text-white;
   }
+  .badge-neutral {
+    @apply inline-flex items-center gap-1 rounded-sm border border-neutral-300 px-1.5 py-0.5 text-2xs font-medium text-neutral-600;
+  }
+
+  /* Left signal-stripe for cards that represent a live status (bookings, spaces). */
+  .stripe-success { @apply border-l-[3px] border-l-success-600; }
+  .stripe-warning { @apply border-l-[3px] border-l-warning-600; }
+  .stripe-error { @apply border-l-[3px] border-l-error-600; }
+  .stripe-primary { @apply border-l-[3px] border-l-primary-600; }
+  .stripe-neutral { @apply border-l-[3px] border-l-neutral-300; }
 }
 
 /* Leaflet map styling */
@@ -76,11 +96,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: #c7c2b8;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a3a3a3;
+  background: #a29c8e;
 }
 
 /* Skeleton shimmer */
@@ -89,8 +109,8 @@
   100% { background-position: 1000px 0; }
 }
 .skeleton {
-  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background: linear-gradient(90deg, #f0eeea 25%, #e1ded7 50%, #f0eeea 75%);
   background-size: 1000px 100%;
   animation: shimmer 2s infinite linear;
-  border-radius: 0.375rem;
+  border-radius: 0.25rem;
 }

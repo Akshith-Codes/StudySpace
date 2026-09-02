@@ -4,9 +4,16 @@ import StatusBadge from './StatusBadge'
 import OccupancyBar from './OccupancyBar'
 import Rating from './Rating'
 
+const STRIPE = {
+  Available: 'stripe-success',
+  Moderate: 'stripe-warning',
+  Crowded: 'stripe-error',
+  Full: 'stripe-neutral',
+}
+
 export default function SpaceCard({ space, onBook }) {
   return (
-    <div className="card p-4 transition-shadow hover:shadow-md">
+    <div className={`card p-4 hover:border-neutral-300 ${STRIPE[space.availability] || 'stripe-neutral'}`}>
       <div className="mb-3 flex items-start justify-between">
         <div>
           <h3 className="text-sm font-semibold text-neutral-900">{space.name}</h3>

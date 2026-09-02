@@ -5,7 +5,7 @@ import StatCard from '../../components/StatCard'
 import LoadingState from '../../components/LoadingState'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 
-const CHART_COLORS = ['#1a4cff', '#10b981', '#f59e0b', '#ef4444', '#737373']
+const CHART_COLORS = ['#2f5c8a', '#1e7a54', '#c1791f', '#a83a32', '#7a7466']
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState(null)
@@ -56,11 +56,11 @@ export default function AdminDashboard() {
           <h3 className="mb-4 text-sm font-semibold text-neutral-900">Occupancy by Hour</h3>
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={occupancyByHour}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0eeea" />
               <XAxis dataKey="hour" tick={{ fontSize: 10 }} interval={1} />
               <YAxis tick={{ fontSize: 10 }} />
-              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e5e5' }} />
-              <Bar dataKey="occupancy" fill="#1a4cff" radius={[4,4,0,0]} />
+              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 6, border: '1px solid #e1ded7' }} />
+              <Bar dataKey="occupancy" fill="#2f5c8a" radius={[3,3,0,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -69,11 +69,11 @@ export default function AdminDashboard() {
           <h3 className="mb-4 text-sm font-semibold text-neutral-900">Bookings per Day</h3>
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={bookingsPerDay}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0eeea" />
               <XAxis dataKey="day" tick={{ fontSize: 10 }} />
               <YAxis tick={{ fontSize: 10 }} />
-              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e5e5' }} />
-              <Bar dataKey="bookings" fill="#10b981" radius={[4,4,0,0]} />
+              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 6, border: '1px solid #e1ded7' }} />
+              <Bar dataKey="bookings" fill="#1e7a54" radius={[3,3,0,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -83,11 +83,11 @@ export default function AdminDashboard() {
         <h3 className="mb-4 text-sm font-semibold text-neutral-900">Popular Spaces</h3>
         <ResponsiveContainer width="100%" height={240}>
           <BarChart data={popularSpaces} layout="vertical">
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#f0eeea" />
             <XAxis type="number" tick={{ fontSize: 10 }} />
             <YAxis type="category" dataKey="name" tick={{ fontSize: 9 }} width={120} />
-            <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e5e5' }} />
-            <Bar dataKey="bookings" fill="#1a4cff" radius={[0,4,4,0]} />
+            <Tooltip contentStyle={{ fontSize: 12, borderRadius: 6, border: '1px solid #e1ded7' }} />
+            <Bar dataKey="bookings" fill="#2f5c8a" radius={[0,3,3,0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

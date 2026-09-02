@@ -24,12 +24,12 @@ export default function AdminSidebar() {
   }
 
   return (
-    <aside className="hidden w-60 shrink-0 flex-col border-r border-neutral-200 bg-white lg:flex">
+    <aside className="hidden w-60 shrink-0 flex-col bg-neutral-900 lg:flex">
       <div className="flex items-center gap-2 px-5 py-4">
-        <Shield size={20} className="text-primary-600" />
+        <Shield size={20} className="text-primary-400" />
         <div>
-          <span className="text-sm font-semibold text-neutral-900">StudySpace AI</span>
-          <p className="text-2xs text-neutral-400">Admin Portal</p>
+          <span className="font-display text-sm font-semibold text-white">StudySpace</span>
+          <p className="text-2xs text-neutral-500">Admin Portal</p>
         </div>
       </div>
 
@@ -39,10 +39,10 @@ export default function AdminSidebar() {
             key={item.to}
             to={item.to}
             className={({ isActive }) =>
-              `flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${
+              `flex items-center gap-2.5 rounded-md border-l-[3px] px-3 py-2 text-sm transition-colors ${
                 isActive
-                  ? 'bg-primary-50 text-primary-700 font-medium'
-                  : 'text-neutral-600 hover:bg-neutral-100'
+                  ? 'border-l-primary-400 bg-white/5 font-medium text-white'
+                  : 'border-l-transparent text-neutral-400 hover:bg-white/5 hover:text-neutral-100'
               }`
             }
           >
@@ -52,14 +52,14 @@ export default function AdminSidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-neutral-200 px-3 py-2">
+      <div className="border-t border-white/10 px-3 py-2">
         <div className="px-3 py-2">
-          <p className="text-xs font-medium text-neutral-700">{user?.name || 'Admin'}</p>
-          <p className="text-2xs text-neutral-400">{user?.email}</p>
+          <p className="text-xs font-medium text-neutral-200">{user?.name || 'Admin'}</p>
+          <p className="text-2xs text-neutral-500">{user?.email}</p>
         </div>
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-neutral-600 transition-colors hover:bg-neutral-100"
+          className="flex w-full items-center gap-2.5 rounded-md border-l-[3px] border-l-transparent px-3 py-2 text-sm text-neutral-400 transition-colors hover:bg-white/5 hover:text-neutral-100"
         >
           <LogOut size={16} />
           <span>Logout</span>

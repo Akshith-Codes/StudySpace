@@ -27,12 +27,12 @@ export default function MobileNav() {
   return (
     <>
       {/* Mobile top bar */}
-      <div className="flex items-center justify-between border-b border-neutral-200 bg-white px-4 py-3 lg:hidden">
+      <div className="flex items-center justify-between bg-neutral-900 px-4 py-3 lg:hidden">
         <div className="flex items-center gap-2">
-          <BookOpen size={18} className="text-primary-600" />
-          <span className="text-sm font-semibold text-neutral-900">StudySpace AI</span>
+          <BookOpen size={18} className="text-success-500" />
+          <span className="font-display text-sm font-semibold text-white">StudySpace</span>
         </div>
-        <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-lg p-2 text-neutral-600 hover:bg-neutral-100">
+        <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-md p-2 text-neutral-300 hover:bg-white/10">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />

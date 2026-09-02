@@ -25,10 +25,10 @@ export default function StudentSidebar() {
   }
 
   return (
-    <aside className="hidden w-60 shrink-0 flex-col border-r border-neutral-200 bg-white lg:flex">
+    <aside className="hidden w-60 shrink-0 flex-col bg-neutral-900 lg:flex">
       <div className="flex items-center gap-2 px-5 py-4">
-        <BookOpen size={20} className="text-primary-600" />
-        <span className="text-sm font-semibold text-neutral-900">StudySpace AI</span>
+        <BookOpen size={20} className="text-success-500" />
+        <span className="font-display text-sm font-semibold text-white">StudySpace</span>
       </div>
 
       <nav className="flex-1 space-y-0.5 px-3 py-2">
@@ -37,17 +37,17 @@ export default function StudentSidebar() {
             key={item.to}
             to={item.to}
             className={({ isActive }) =>
-              `flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${
+              `flex items-center gap-2.5 rounded-md border-l-[3px] px-3 py-2 text-sm transition-colors ${
                 isActive
-                  ? 'bg-primary-50 text-primary-700 font-medium'
-                  : 'text-neutral-600 hover:bg-neutral-100'
+                  ? 'border-l-success-500 bg-white/5 font-medium text-white'
+                  : 'border-l-transparent text-neutral-400 hover:bg-white/5 hover:text-neutral-100'
               }`
             }
           >
             <item.icon size={16} />
             <span>{item.label}</span>
             {item.to === '/waitlist' && unreadCount > 0 && (
-              <span className="ml-auto rounded-full bg-primary-600 px-1.5 py-0.5 text-2xs text-white">
+              <span className="num ml-auto rounded-sm bg-success-600 px-1.5 py-0.5 text-2xs text-white">
                 {unreadCount}
               </span>
             )}
@@ -55,12 +55,12 @@ export default function StudentSidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-neutral-200 px-3 py-2">
+      <div className="border-t border-white/10 px-3 py-2">
         <NavLink
           to="/profile"
           className={({ isActive }) =>
-            `flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${
-              isActive ? 'bg-primary-50 text-primary-700 font-medium' : 'text-neutral-600 hover:bg-neutral-100'
+            `flex items-center gap-2.5 rounded-md border-l-[3px] px-3 py-2 text-sm transition-colors ${
+              isActive ? 'border-l-success-500 bg-white/5 font-medium text-white' : 'border-l-transparent text-neutral-400 hover:bg-white/5 hover:text-neutral-100'
             }`
           }
         >
@@ -69,7 +69,7 @@ export default function StudentSidebar() {
         </NavLink>
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-neutral-600 transition-colors hover:bg-neutral-100"
+          className="flex w-full items-center gap-2.5 rounded-md border-l-[3px] border-l-transparent px-3 py-2 text-sm text-neutral-400 transition-colors hover:bg-white/5 hover:text-neutral-100"
         >
           <LogOut size={16} />
           <span>Logout</span>

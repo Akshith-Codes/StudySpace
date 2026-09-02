@@ -86,7 +86,7 @@ export default function Dashboard() {
 
       {/* Upcoming Booking */}
       {upcomingBooking ? (
-        <div className="card p-5">
+        <div className="card stripe-success p-5">
           <div className="mb-3 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-neutral-900">Upcoming Booking</h2>
             <StatusBadge status={upcomingBooking.status} />
@@ -129,7 +129,7 @@ export default function Dashboard() {
           { to: '/map', label: 'Campus Map', icon: Map },
           { to: '/check-in', label: 'Scan QR', icon: QrCode },
         ].map((a) => (
-          <Link key={a.to} to={a.to} className="card flex flex-col items-center gap-2 p-4 transition-shadow hover:shadow-md">
+          <Link key={a.to} to={a.to} className="card flex flex-col items-center gap-2 p-4 hover:border-neutral-300">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50">
               <a.icon size={20} className="text-primary-600" />
             </div>
@@ -147,19 +147,19 @@ export default function Dashboard() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <div>
             <p className="text-xs text-neutral-500">Total Seats</p>
-            <p className="text-lg font-semibold text-neutral-900">{totalSeats}</p>
+            <p className="num text-lg font-semibold text-neutral-900">{totalSeats}</p>
           </div>
           <div>
             <p className="text-xs text-neutral-500">Occupied</p>
-            <p className="text-lg font-semibold text-neutral-900">{occupiedSeats}</p>
+            <p className="num text-lg font-semibold text-neutral-900">{occupiedSeats}</p>
           </div>
           <div>
             <p className="text-xs text-neutral-500">Reserved</p>
-            <p className="text-lg font-semibold text-neutral-900">{reservedSeats}</p>
+            <p className="num text-lg font-semibold text-neutral-900">{reservedSeats}</p>
           </div>
           <div>
             <p className="text-xs text-neutral-500">Available</p>
-            <p className="text-lg font-semibold text-success-600">{availableSeats}</p>
+            <p className="num text-lg font-semibold text-success-600">{availableSeats}</p>
           </div>
         </div>
         <div className="mt-4">
@@ -177,7 +177,7 @@ export default function Dashboard() {
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {recommendations.map((space) => (
-            <div key={space.id} className="card p-4 transition-shadow hover:shadow-md">
+            <div key={space.id} className="card p-4 hover:border-neutral-300">
               <div className="mb-2 flex items-center justify-between">
                 <span className="badge-primary">{space.matchScore}% Match</span>
                 <StatusBadge status={space.availability} />
@@ -204,7 +204,7 @@ export default function Dashboard() {
         </div>
         <div className="space-y-2">
           {popularSpaces.map((space) => (
-            <Link key={space.id} to={`/spaces/${space.id}`} className="card flex items-center justify-between p-4 transition-shadow hover:shadow-md">
+            <Link key={space.id} to={`/spaces/${space.id}`} className="card flex items-center justify-between p-4 hover:border-neutral-300">
               <div>
                 <p className="text-sm font-medium text-neutral-900">{space.name}</p>
                 <p className="text-xs text-neutral-500">{space.building} · {space.availableCount} seats available</p>
